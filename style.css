@@ -1,0 +1,87 @@
+/* Optional CSS styles for the todo list */
+html, body {
+    background-color: #f0f5f9;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Rest of your existing CSS styles... */
+  .todo-list {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-list h1 {
+    color: #3498db;
+  }
+  
+  .todo-list form {
+    margin-bottom: 10px;
+  }
+  
+  .todo-list input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .todo-list button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .todo-item {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #eaf3fa;
+    border-radius: 4px;
+  }
+  
+  .todo-item label {
+    color: #333333;
+  }
+  
+  .todo-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .delete-button {
+    margin-left: 10px;
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    /* Styles for mobile devices */
+    .todo-item input[type="checkbox"],
+    .delete-button {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+    .delete-button {
+      margin-top: 5px;
+    }
+    .todo-list input[type="text"] {
+      width: 100%;
+    }
+  }
+  

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Optional CSS styles for the todo list */
+    .todo-list {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .todo-item {
+      margin-bottom: 10px;
+    }
+    .todo-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .delete-button {
+      margin-left: 10px;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      /* Styles for mobile devices */
+      .todo-item input[type="checkbox"],
+      .delete-button {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+      .delete-button {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-list">
+    <h1>Todo List</h1>
+    <form id="todo-form">
+      <input type="text" id="new-item-input" placeholder="Add new item">
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todo-items"></ul>
+    <button id="view-all-button">View All</button>
+  </div>
+  
+  <script>
+    // JavaScript code for todo list functionalities
+    const form = document.getElementById("todo-form");
+    const itemList = document.getElementById("todo-items");
+    const input = document.getElementById("new-item-input");
+    const viewAllButton = document.getElementById("view-all-button");
+    
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const newItem = document.createElement("li");
+      newItem.className = "todo-item";
+      newItem.innerHTML = `
+        <input type="checkbox">
+        <label>${input.value}</label>
+        <button class="delete-button">Delete</button>
+      `;
+      itemList.appendChild(newItem);
+      input.value = "";
+    });
+    
+    itemList.addEventListener("click", function(event) {
+      if (event.target.className === "delete-button") {
+        event.target.parentNode.remove();
+      }
+    });
+    
+    viewAllButton.addEventListener("click", function() {
+      const items = itemList.getElementsByTagName("li");
+      let todos = "";
+      for (let i = 0; i < items.length; i++) {
+        const label = items[i].getElementsByTagName("label")[0].textContent;
+        todos += "- " + label + "\n";
+      }
+      alert("Todos:\n" + todos);
+    });
+  </script>
+</body>
+</html>
